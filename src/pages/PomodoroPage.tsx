@@ -1,17 +1,25 @@
 import '../styles/pages/pomodoroStyles.css'
 import '../styles/components/IconButton.css'
-import IconButton from '../components/IconButton'
-import PlayIcon from '../components/icons/PlayIcon'
+import '../styles/components/ModeChip.css'
+import BrainIcon from '../components/icons/BrainIcon'
+import Chip from '../components/ModeChip'
+import ControlButtons from '../components/pomodoro/ControlButtons'
+import TimerDisplay from '../components/pomodoro/TimerDisplay'
 
 export default function PomodoroPage() {
     return (
         <>
-            <h1>Pomodoro Timer</h1>
-            <IconButton
-                icon={PlayIcon}
-                onClick={() => console.log('Pomodoro started')}
-                className="small primary-red"
+            <Chip
+                icon={<BrainIcon size={20} className="icon" />}
+                text="Focus"
+                className="chip-red"
             />
+            <TimerDisplay
+                duration={25 * 60}
+                isRunning={false}
+                onComplete={() => console.log('Focus session complete')}
+            />
+            <ControlButtons />
             {/* // focus mode tag */}
             {/* // countdown timer */}
             {/* // buttons */}

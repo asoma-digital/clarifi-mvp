@@ -120,40 +120,12 @@ Text Styles
 *
 */
 
-/* Timer */
-.timer-paused{
-    font-family: 'Roboto Flex', sans-serif;
-    font-weight: 200;
-    font-variation-settings: "wdth" 110;
-    font-size: 16rem;
-    line-height: 0.85;
-}
-.timer-running{
-    font-family: 'Roboto Flex', sans-serif;
-    font-weight: 800;
-    font-size: 16rem;
-    line-height: 0.85;
-}
-/* Heading */
-.h1{
-    font-family: 'Roboto Flex', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    letter-spacing: 0.15px;
-}
-/* Label */
-.medium{
-    font-family: 'Roboto Flex', sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-}
-/* Text */
-.regular{
-    font-family: 'Roboto Flex', sans-serif;
-    letter-spacing: 0.15px;
-}
-.small{
-    font-family: 'Roboto Flex', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.15px;
+main {
+    display: flex;
+    width: 480px;
+    padding: 48px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
 }
