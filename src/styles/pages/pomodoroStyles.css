@@ -1,0 +1,40 @@
+.pomodoro-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+.mode-chip {
+  font-size: 1rem;
+  padding: 0.3rem 0.8rem;
+  background: white;
+  border-radius: 999px;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.timer-text {
+  font-size: 6rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.circle-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  background: white;
+  cursor: pointer;
+}
