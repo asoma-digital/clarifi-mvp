@@ -6,34 +6,26 @@ color mode: light, dark
 */
 
 /* LIGHT MODE */
+
 /* size */
 .large{
-    display: inline-flex;
     padding: 32px 48px;
-    justify-content: center;
-    align-items: center;
     gap: 16px;
     border-radius: 32px;
 }
 .medium{
-    display: inline-flex;
     padding: 24px;
-    justify-content: center;
-    align-items: center;
     gap: 16px;
     border-radius: 24px;
 }
 .small{
-    display: inline-flex;
     padding: 8px;
-    justify-content: center;
-    align-items: center;
     border-radius: 8px;
 }
 
 /* color */
 .primary-red{
-    background: var(--red-700);
+    background: var(--red-600);
     color: var(--red-900);
 }
 .secondary-red{

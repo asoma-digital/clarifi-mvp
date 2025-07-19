@@ -17,10 +17,3 @@
 .timer-running {
   font-weight: 800;
 }
-
-.digit {
-  font-size: 120px;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--red-900); /* Update dynamically for green/blue if needed */
-}

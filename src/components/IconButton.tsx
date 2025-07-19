@@ -1,4 +1,5 @@
 import type { IconProps } from '../types/icon'
+import '../styles/global.css'
 
 type IconButtonProps = {
     icon: React.FC<IconProps>
@@ -11,13 +12,16 @@ type IconButtonProps = {
 const IconButton = ({
     icon: Icon,
     iconColor = 'currentColor',
-    size = 24,
+    size,
     onClick,
     className = '',
 }: IconButtonProps) => {
+    
+    const computedSize = size ?? (className.includes('small') ? 18 : 32);
+
     return (
-        <button onClick={onClick} className={`flex items-center justify-center ${className}`}>
-            <Icon size={size} color={iconColor} />
+        <button onClick={onClick} className={`icon-button ${className}`}>
+            <Icon size={computedSize} color={iconColor} />
         </button>
     )
 }

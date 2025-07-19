@@ -109,23 +109,63 @@
     --blue-alpha-200: #48c0c024;
     --blue-alpha-100: #48c0c015;
     --blue-alpha-50: #48c0c005;
+
+    margin: 0;
+    padding: 0;
 }
-
-
-/*
-*
-*
-Text Styles 
-*
-*
-*/
 
 main {
     display: flex;
-    width: 480px;
+    width: 100%;
     padding: 48px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 32px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.pomodoro-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pomodoro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bg-focus {
+    background-color: var(--red-50);
+}
+
+.bg-shortBreak {
+    background-color: var(--blue-50);
+}
+
+.bg-longBreak {
+    background-color: var(--green-50);
+}
+
+@media (prefers-color-scheme: dark) {
+    .bg-focus {
+        background-color: var(--red-950);
+    }
+
+    .bg-shortBreak {
+        background-color: var(--blue-950);
+    }
+
+    .bg-longBreak {
+        background-color: var(--green-950);
+    }
 }

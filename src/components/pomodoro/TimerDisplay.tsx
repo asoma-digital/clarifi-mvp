@@ -37,7 +37,7 @@ const TimerDisplay = ({ duration, isRunning, onComplete }: TimerDisplayProps) =>
     const formatTime = (time: number) => time.toString().padStart(2, '0')
 
     return (
-    <div className="timer timer-paused">
+    <div className={`timer ${isRunning ? 'timer-running' : 'timer-paused'}`}>
         <span>{formatTime(minutes)}</span>
         <span>{formatTime(seconds)}</span>
     </div>
