@@ -9,7 +9,7 @@ type KeyProps = {
 
 export default function Key({ keyName, mode }: KeyProps) {
 
-    const color = `var(--${modeColorMap[mode]}-900)`
+    const color = `var(--${modeColorMap[mode]}-alpha-900)`
 
     return (
         <span

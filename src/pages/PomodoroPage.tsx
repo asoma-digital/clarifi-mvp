@@ -4,11 +4,12 @@ import { useState } from 'react'
 import TimerDisplay from '../components/pomodoro/TimerDisplay'
 import ControlButtons from '../components/pomodoro/ControlButtons'
 import { modeConfig } from '../context/PomodoroContext'
+import Menu from '../components/Menu'
 
 export default function PomodoroPage() {
-    const [mode/*, setMode*/] = useState<PomodoroMode>('shortBreak')
+    const [mode/*, setMode*/] = useState<PomodoroMode>('focus')
     const [isRunning, setIsRunning] = useState(false)
-    const [timeLeft, setTimeLeft] = useState(25 * 60) // 25 minutes in seconds
+    const [timeLeft, setTimeLeft] = useState(25 * 60)
 
     const toggleRunning = () => {
         setIsRunning(prev => !prev)
@@ -29,6 +30,7 @@ export default function PomodoroPage() {
                 />
 
                 <ControlButtons color={color} isRunning={isRunning} toggleRunning={toggleRunning} />
+
             </div>
         </div>
     )

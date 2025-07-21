@@ -9,7 +9,7 @@ const MenuItemName = ({
     mode,
 }: MenuItemNameProps) => {
     const menuIconSize = 24
-    const color = `var(--${modeColorMap[mode]}-900)`
+    const color = `var(--${modeColorMap[mode]}-alpha-900)`
 
     return (
         <div className="menu-item-name">
