@@ -11,14 +11,20 @@ type ControlButtonsProps = {
   color: Color
   isRunning: boolean
   toggleRunning: () => void
+  onOptionsClick: () => void
 }
 
-const ControlButtons = ({ color, isRunning, toggleRunning }: ControlButtonsProps) => {
+const ControlButtons = ({ 
+  color, 
+  isRunning, 
+  toggleRunning,
+  onOptionsClick 
+}: ControlButtonsProps) => {
   return (
     <div className="control-buttons">
         <IconButton
             icon={DotsThreeIcon}
-            onClick={() => console.log('Statistics clicked')}
+            onClick={onOptionsClick}
             className={buttonStyle('secondary', color, 'medium')}
         />
         <IconButton

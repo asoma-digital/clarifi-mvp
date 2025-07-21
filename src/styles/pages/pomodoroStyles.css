@@ -64,13 +64,13 @@
 
     --black-alpha-950: #000000;
     --black-alpha-900: #00000090;
-    --black-alpha-800: #00000081;
+    --black-alpha-800: rgba(0, 0, 0, 0.506);
     --black-alpha-700: #00000071;
     --black-alpha-600: #00000062;
     --black-alpha-500: #00000052;
     --black-alpha-400: #00000043;
     --black-alpha-300: #00000033;
-    --black-alpha-200: #00000024;
+    --black-alpha-200: rgba(0, 0, 0, 0.24);
     --black-alpha-100: #00000015;
     --black-alpha-50: #00000005;
 

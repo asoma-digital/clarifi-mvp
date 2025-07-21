@@ -4,12 +4,14 @@ import { useState } from 'react'
 import TimerDisplay from '../components/pomodoro/TimerDisplay'
 import ControlButtons from '../components/pomodoro/ControlButtons'
 import { modeConfig } from '../context/PomodoroContext'
-import Menu from '../components/Menu'
+import OptionsModal from '../components/OptionsModal'
+import SettingItemNumber from '../components/SettingItemNumber'
 
 export default function PomodoroPage() {
-    const [mode/*, setMode*/] = useState<PomodoroMode>('focus')
+    const [mode/*, setMode*/] = useState<PomodoroMode>('shortBreak')
     const [isRunning, setIsRunning] = useState(false)
     const [timeLeft, setTimeLeft] = useState(25 * 60)
+    const [isOptionsOpen, setIsOptionsOpen] = useState(false)
 
     const toggleRunning = () => {
         setIsRunning(prev => !prev)
@@ -29,8 +31,18 @@ export default function PomodoroPage() {
                     onComplete={() => console.log('Focus session complete')}
                 />
 
-                <ControlButtons color={color} isRunning={isRunning} toggleRunning={toggleRunning} />
+                <ControlButtons 
+                    color={color} 
+                    isRunning={isRunning} 
+                    toggleRunning={toggleRunning}
+                    onOptionsClick={() => setIsOptionsOpen(true)}
+                />
 
+                {isOptionsOpen && (
+                    <OptionsModal mode={mode} onClose={() => setIsOptionsOpen(false)} />
+                )}
+
+                <SettingItemNumber settingItemName="Focus Length" mode={mode}/>
             </div>
         </div>
     )
