@@ -1,39 +1,34 @@
 import '../styles/pages/pomodoroStyles.css'
 import type { PomodoroMode } from '../types/mode'
 import { useState } from 'react'
-import { FocusChip, LongBreakChip, ShortBreakChip } from '../components/pomodoro/ModeChips'
 import TimerDisplay from '../components/pomodoro/TimerDisplay'
 import ControlButtons from '../components/pomodoro/ControlButtons'
-
+import { modeConfig } from '../context/PomodoroContext'
 
 export default function PomodoroPage() {
-    const [mode, setMode] = useState<PomodoroMode>('focus')
+    const [mode/*, setMode*/] = useState<PomodoroMode>('shortBreak')
     const [isRunning, setIsRunning] = useState(false)
+    const [timeLeft, setTimeLeft] = useState(25 * 60) // 25 minutes in seconds
+
+    const toggleRunning = () => {
+        setIsRunning(prev => !prev)
+    }
+
+    const { Chip, color } = modeConfig[mode]
 
     return (
         <div className={`pomodoro-wrapper bg-${mode}`}>
             <div className="pomodoro-content">
-            {mode === 'focus' ? (
-                <FocusChip/>
-            ) : mode === 'shortBreak' ? (
-                <ShortBreakChip/>
-            ) : (
-                <LongBreakChip/>
-            )}
+                <Chip />
 
-            <TimerDisplay
-                duration={25 * 60}
-                isRunning={isRunning}
-                onComplete={() => console.log('Focus session complete')}
-            />
+                <TimerDisplay
+                    timeLeft={timeLeft}
+                    setTimeLeft={setTimeLeft}
+                    isRunning={isRunning}
+                    onComplete={() => console.log('Focus session complete')}
+                />
 
-            {mode === 'focus' ? (
-                <ControlButtons color="red"/>
-            ) : mode === 'shortBreak' ? (
-                <ControlButtons color="blue"/>
-            ) : (
-                <ControlButtons color="green"/>
-            )}
+                <ControlButtons color={color} isRunning={isRunning} toggleRunning={toggleRunning} />
             </div>
         </div>
     )

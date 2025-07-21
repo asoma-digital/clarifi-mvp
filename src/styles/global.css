@@ -42,3 +42,52 @@ html, body {
     justify-content: center;
     gap: 16px;
 }
+
+.key{
+    display: inline-flex;
+    padding: 0px 4px;
+    align-items: flex-start;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.15px;
+}
+
+.shortcut{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    opacity: 0.5;
+}
+
+.menu-item{
+    display: flex;
+    width: 224px;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-item-name{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border-radius: 12px;
+    border-width: 1px;
+    padding: 8px;
+    border-color: var(--black-alpha-50);
+    box-shadow:
+        0px 5.5px 16px rgba(0, 0, 0, 0.19),
+        0px 1px 6px rgba(0, 0, 0, 0.039);
+}

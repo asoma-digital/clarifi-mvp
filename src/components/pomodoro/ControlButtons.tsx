@@ -2,15 +2,18 @@ import IconButton from "../IconButton"
 import DotsThreeIcon from "../icons/DotsThreeIcon"
 import PlayIcon from "../icons/PlayIcon"
 import FastForwardIcon from "../icons/FastForwardIcon"
+import PauseIcon from "../icons/PauseIcon"
 import '../../styles/components/IconButton.css'
 import { buttonStyle } from "../../utils/buttonStyle"
 import type { Color } from "../../utils/buttonStyle"
 
 type ControlButtonsProps = {
   color: Color
+  isRunning: boolean
+  toggleRunning: () => void
 }
 
-const ControlButtons = ({ color }: ControlButtonsProps) => {
+const ControlButtons = ({ color, isRunning, toggleRunning }: ControlButtonsProps) => {
   return (
     <div className="control-buttons">
         <IconButton
@@ -19,8 +22,8 @@ const ControlButtons = ({ color }: ControlButtonsProps) => {
             className={buttonStyle('secondary', color, 'medium')}
         />
         <IconButton
-            icon={PlayIcon}
-            onClick={() => console.log('Settings clicked')}
+            icon={isRunning ? PauseIcon : PlayIcon}
+            onClick={toggleRunning}
             className={buttonStyle('primary', color, 'large')}
         />
         <IconButton

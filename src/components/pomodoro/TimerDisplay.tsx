@@ -1,47 +1,38 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import '../../styles/pomodoro/TimerDisplay.css'
 
 type TimerDisplayProps = {
-    duration: number
+    timeLeft: number
+    setTimeLeft: React.Dispatch<React.SetStateAction<number>>
     isRunning: boolean
-    onComplete?: () => void
+    onComplete: () => void
 }
 
-const TimerDisplay = ({ duration, isRunning, onComplete }: TimerDisplayProps) => {
-    const [timeLeft, setTimeLeft] = useState(duration)
-
+export default function TimerDisplay({ timeLeft, setTimeLeft, isRunning, onComplete }: TimerDisplayProps) {
     useEffect(() => {
-        let interval: NodeJS.Timeout | null = null
+        if (!isRunning) return
 
-        if (isRunning && timeLeft > 0) {
-            interval = setInterval(() => {setTimeLeft((prev) => prev - 1)}, 1000)
-        } else if (timeLeft === 0 && interval) {
-            clearInterval(interval)
-            onComplete?.()
-        }
+        const interval = setInterval(() => {
+            setTimeLeft(prev => {
+                if (prev <= 1) {
+                    clearInterval(interval)
+                    onComplete()
+                    return 0
+                }
+                return prev - 1
+            })
+        }, 1000)
 
-        return () => {
-            if (interval) clearInterval(interval)
-        }
-    }, [isRunning, timeLeft])
-
-    useEffect(() => {
-        if (!isRunning) {
-            setTimeLeft(duration)
-        }
-    }, [duration, isRunning])
+        return () => clearInterval(interval)
+    }, [isRunning])
 
     const minutes = Math.floor(timeLeft / 60)
     const seconds = timeLeft % 60
 
-    const formatTime = (time: number) => time.toString().padStart(2, '0')
-
     return (
     <div className={`timer ${isRunning ? 'timer-running' : 'timer-paused'}`}>
-        <span>{formatTime(minutes)}</span>
-        <span>{formatTime(seconds)}</span>
+        <span>{String(minutes).padStart(2, '0')}</span>
+        <span>{String(seconds).padStart(2, '0')}</span>
     </div>
     )
 }
-
-export default TimerDisplay
