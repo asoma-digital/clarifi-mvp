@@ -17,7 +17,7 @@ export default function NumberInput({
     onChange,
     mode
 }: NumberInputProps) {
-    const color = `var(--${modeColorMap[mode]}-900)`
+    const color = `var(--${modeColorMap[mode]}-alpha-900)`
 
     const [value, setValue] = useState(defaultValue)
 

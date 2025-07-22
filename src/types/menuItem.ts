@@ -10,4 +10,5 @@ export type MenuItemProps = {
   menuItemNameString: string
   keyName: string
   mode: PomodoroMode
+  onClick: () => void
 }

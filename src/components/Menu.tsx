@@ -12,9 +12,10 @@ import type { PomodoroMode } from '../types/mode'
 
 type MenuProps = {
   mode: PomodoroMode
+  onPreferencesClick: () => void
 }
 
-const Menu = ({ mode }: MenuProps) => {
+const Menu = ({ mode, onPreferencesClick }: MenuProps) => {
   return (
     <div className="menu">
       <MenuItem
@@ -24,6 +25,7 @@ const Menu = ({ mode }: MenuProps) => {
         menuItemNameString="Statistics"
         keyName="S"
         mode={mode}
+        onClick={() => console.log('Statistics clicked')}
       />
       <MenuItem
         menuItemNameComponent={MenuItemName}
@@ -32,6 +34,7 @@ const Menu = ({ mode }: MenuProps) => {
         menuItemNameString="Preferences"
         keyName="P"
         mode={mode}
+        onClick={onPreferencesClick}
       />
       <MenuItem
         menuItemNameComponent={MenuItemName}
@@ -40,6 +43,7 @@ const Menu = ({ mode }: MenuProps) => {
         menuItemNameString="Shortcuts"
         keyName="K"
         mode={mode}
+        onClick = {() => console.log('Shortcuts clicked')}
       />
     </div>
   )

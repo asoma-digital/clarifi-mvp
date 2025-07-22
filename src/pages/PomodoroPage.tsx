@@ -5,19 +5,24 @@ import TimerDisplay from '../components/pomodoro/TimerDisplay'
 import ControlButtons from '../components/pomodoro/ControlButtons'
 import { modeConfig } from '../context/PomodoroContext'
 import OptionsModal from '../components/OptionsModal'
-import SettingItemNumber from '../components/SettingItemNumber'
+import SettingsModal from '../components/SettingsModal'
 
 export default function PomodoroPage() {
     const [mode/*, setMode*/] = useState<PomodoroMode>('shortBreak')
     const [isRunning, setIsRunning] = useState(false)
     const [timeLeft, setTimeLeft] = useState(25 * 60)
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
     const toggleRunning = () => {
         setIsRunning(prev => !prev)
     }
 
     const { Chip, color } = modeConfig[mode]
+
+    function handleOnClose() {
+         setIsSettingsOpen(false)
+    }
 
     return (
         <div className={`pomodoro-wrapper bg-${mode}`}>
@@ -39,10 +44,20 @@ export default function PomodoroPage() {
                 />
 
                 {isOptionsOpen && (
-                    <OptionsModal mode={mode} onClose={() => setIsOptionsOpen(false)} />
+                    <OptionsModal 
+                        mode={mode} 
+                        onClose={() => setIsOptionsOpen(false)} 
+                        onPreferencesClick={() => {
+                            setIsOptionsOpen(false)
+                            setIsSettingsOpen(true)
+                        }}
+                    />
                 )}
 
-                <SettingItemNumber settingItemName="Focus Length" mode={mode}/>
+                {isSettingsOpen && (
+                    <SettingsModal mode={mode} onClose={handleOnClose} />
+                )}
+
             </div>
         </div>
     )

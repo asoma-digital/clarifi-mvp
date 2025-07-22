@@ -5,7 +5,7 @@ import { useState } from "react"
 import { modeColorMap } from '../utils/pomodoroUtils'
 
 export default function SettingItemSwitch({settingItemName, mode}: SettingItemSwitchProps ){
-    const color = `var(--${modeColorMap[mode]}-900)`
+    const color = `var(--${modeColorMap[mode]}-alpha-950)`
     const [isOn, setIsOn] = useState(false)
 
     const handleToggle = () => {

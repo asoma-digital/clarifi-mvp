@@ -10,7 +10,7 @@ type SwitchProps = {
 }
 
 export default function Switch({ isOn, onToggle, mode }: SwitchProps) {
-    const toggleOffColor = `var(--${modeColorMap[mode]}-alpha-100)`
+    const toggleOffColor = `var(--${modeColorMap[mode]}-alpha-300)`
     const toggleOnColor = `var(--${modeColorMap[mode]}-alpha-600)`
 
     return (
