@@ -29,7 +29,7 @@ export default function SettingsModal({ mode, onClose }: SettingsModalProps){
                     </button>
                 </div>
                 {/* // Switch - Dark mode */}
-                <SettingItemSwitch settingItemName="Dark mode" mode={mode}/>
+                {/* <SettingItemSwitch settingItemName="Dark mode" mode={mode}/> */}
                 {/* // Number - Focus length */}
                 <SettingItemNumber settingItemName="Focus length" mode={mode}/>
                 {/* // Number - Pomodoros until long break */}
@@ -38,6 +38,8 @@ export default function SettingsModal({ mode, onClose }: SettingsModalProps){
                 <SettingItemNumber settingItemName="Short break length" mode={mode}/>
                 {/* // Number - Long break length */}
                 <SettingItemNumber settingItemName="Long break length" mode={mode}/>
+                {/* // Number - Number of sets */}
+                <SettingItemNumber settingItemName="Number of sets" mode={mode}/>
                 {/* // Switch - Auto resume timer */}
                 <SettingItemSwitch settingItemName="Auto resume timer" mode={mode}/>
                 {/* // Switch Sound */}
