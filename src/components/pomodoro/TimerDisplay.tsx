@@ -1,14 +1,42 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import '../../styles/pomodoro/TimerDisplay.css'
+import type { PomodoroMode } from '../../types/mode'
+import { usePomodoroSettings } from '../../context/PomodoroSettingsContext'
 
 type TimerDisplayProps = {
-    timeLeft: number
-    setTimeLeft: React.Dispatch<React.SetStateAction<number>>
     isRunning: boolean
     onComplete: () => void
+    mode: PomodoroMode
 }
 
-export default function TimerDisplay({ timeLeft, setTimeLeft, isRunning, onComplete }: TimerDisplayProps) {
+export default function TimerDisplay({isRunning, onComplete, mode }: TimerDisplayProps) {
+    //   Destructure values and setters from context
+    const {
+        focusLength,
+        shortBreakLength,
+        longBreakLength,
+        pomodorosUntilLongBreak,
+        numberOfSets,
+    } = usePomodoroSettings();
+
+    const getInitialTime = () => {
+        switch (mode) {
+        case 'focus':
+            return focusLength * 60
+        case 'shortBreak':
+            return shortBreakLength * 60
+        case 'longBreak':
+            return longBreakLength * 60
+        }
+    }
+    
+    const [timeLeft, setTimeLeft] = useState(getInitialTime())
+
+    useEffect(() => {
+        // Restart timer if settings change
+        setTimeLeft(getInitialTime())
+    }, [focusLength, shortBreakLength, longBreakLength, mode])
+
     useEffect(() => {
         if (!isRunning) return
 
@@ -24,7 +52,7 @@ export default function TimerDisplay({ timeLeft, setTimeLeft, isRunning, onCompl
         }, 1000)
 
         return () => clearInterval(interval)
-    }, [isRunning])
+    }, [isRunning, onComplete])
 
     const minutes = Math.floor(timeLeft / 60)
     const seconds = timeLeft % 60

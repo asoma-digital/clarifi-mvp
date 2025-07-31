@@ -3,16 +3,16 @@ import type { PomodoroMode } from '../types/mode'
 import { useState } from 'react'
 import TimerDisplay from '../components/pomodoro/TimerDisplay'
 import ControlButtons from '../components/pomodoro/ControlButtons'
-import { modeConfig } from '../context/PomodoroContext'
+import { modeConfig } from '../context/PomodoroSettingsContext'
 import OptionsModal from '../components/OptionsModal'
 import SettingsModal from '../components/SettingsModal'
 
 export default function PomodoroPage() {
-    const [mode/*, setMode*/] = useState<PomodoroMode>('shortBreak')
+    const [mode/*, setMode*/] = useState<PomodoroMode>('focus')
     const [isRunning, setIsRunning] = useState(false)
-    const [timeLeft, setTimeLeft] = useState(25 * 60)
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
     const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+
 
     const toggleRunning = () => {
         setIsRunning(prev => !prev)
@@ -30,10 +30,9 @@ export default function PomodoroPage() {
                 <Chip />
 
                 <TimerDisplay
-                    timeLeft={timeLeft}
-                    setTimeLeft={setTimeLeft}
                     isRunning={isRunning}
                     onComplete={() => console.log('Focus session complete')}
+                    mode={mode}
                 />
 
                 <ControlButtons 
@@ -55,7 +54,7 @@ export default function PomodoroPage() {
                 )}
 
                 {isSettingsOpen && (
-                    <SettingsModal mode={mode} onClose={handleOnClose} />
+                    <SettingsModal mode={mode} onClose={handleOnClose} isRunning={isRunning}/>
                 )}
 
             </div>
