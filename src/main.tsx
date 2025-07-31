@@ -10,7 +10,7 @@ import { PomodoroSettingsProvider } from './context/PomodoroSettingsContext';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/clarifi-mvp">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/pomodoro" element={<PomodoroSettingsProvider><PomodoroPage /></PomodoroSettingsProvider>} />
