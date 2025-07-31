@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <Link to="/pomodoro" style={{ fontSize: '1.25rem', color: '#123dd8', textDecoration: 'underline' }}>
+      <Link to="/pomodoro">
         Go to Pomodoro Screen
       </Link>
     </>
