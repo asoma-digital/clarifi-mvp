@@ -8,7 +8,7 @@ import OptionsModal from '../components/OptionsModal'
 import SettingsModal from '../components/SettingsModal'
 
 export default function PomodoroPage() {
-    const [mode/*, setMode*/] = useState<PomodoroMode>('focus')
+    const [mode, setMode] = useState<PomodoroMode>('focus')
     const [isRunning, setIsRunning] = useState(false)
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
     const [isSettingsOpen, setIsSettingsOpen] = useState(false)
@@ -29,11 +29,12 @@ export default function PomodoroPage() {
             <div className="pomodoro-content">
                 <Chip />
 
-                <TimerDisplay
-                    isRunning={isRunning}
-                    onComplete={() => console.log('Focus session complete')}
-                    mode={mode}
-                />
+                        <TimerDisplay 
+          isRunning={isRunning} 
+          setIsRunning={setIsRunning} 
+          mode={mode} 
+          setMode={setMode} 
+        />
 
                 <ControlButtons 
                     color={color} 
