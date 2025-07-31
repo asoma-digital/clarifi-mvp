@@ -12,9 +12,10 @@ import { usePomodoroSettings } from '../context/PomodoroSettingsContext';
 type SettingsModalProps = {
     mode: PomodoroMode
     onClose: () => void
+    isRunning: boolean
 }
 
-export default function SettingsModal({ mode, onClose }: SettingsModalProps){
+export default function SettingsModal({ mode, onClose, isRunning}: SettingsModalProps){
     const color = `var(--${modeColorMap[mode]}-alpha-900)`
     const bgColor = `var(--${modeColorMap[mode]}-alpha-50)`
 //   Destructure values and setters from context
@@ -39,8 +40,17 @@ export default function SettingsModal({ mode, onClose }: SettingsModalProps){
                     <h1>
                         Settings
                     </h1>
-                    <button className="settings-modal-header-icon" onClick={() => 
-                        onClose()}>
+                    <button
+                        className="settings-modal-header-icon"onClick={() => {
+                            if (isRunning) {
+                                const confirmClose = window.confirm(
+                                    "Your timer is currently running. Changing settings will restart the timer. Do you still want to close settings?"
+                                )
+                                if (!confirmClose) return
+                            }
+                            onClose()
+                        }}
+                    >
                         <XIcon size={18}/>
                     </button>
                 </div>

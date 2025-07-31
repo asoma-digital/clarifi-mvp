@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import "../styles/components/numberInput.css"
 import { modeColorMap } from '../utils/pomodoroUtils'
 import type { PomodoroMode } from "../types/mode"
