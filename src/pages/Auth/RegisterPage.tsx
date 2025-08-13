@@ -11,7 +11,7 @@ export default function RegisterPage() {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     // Perform registration logic here
-    navigate('/pomodoro');
+    navigate('/dashboard');
   };
 
   return (

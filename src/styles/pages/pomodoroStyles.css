@@ -156,6 +156,21 @@ html, body {
     background-color: var(--green-50);
 }
 
+.back-button {
+  background: none;
+  border: none;
+  color: #a991ff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #d4c2ff;
+}
+
+
 @media (prefers-color-scheme: dark) {
     .bg-focus {
         background-color: var(--red-950);

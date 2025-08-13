@@ -6,8 +6,10 @@ import ControlButtons from '../components/pomodoro/ControlButtons'
 import { modeConfig } from '../context/PomodoroSettingsContext'
 import OptionsModal from '../components/OptionsModal'
 import SettingsModal from '../components/SettingsModal'
+import { useNavigate } from 'react-router-dom'
 
 export default function PomodoroPage() {
+    const navigate = useNavigate();
     const [mode, setMode] = useState<PomodoroMode>('focus')
     const [isRunning, setIsRunning] = useState(false)
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
@@ -27,6 +29,8 @@ export default function PomodoroPage() {
     return (
         <div className={`pomodoro-wrapper bg-${mode}`}>
             <div className="pomodoro-content">
+                <button className='back-button' onClick={() => navigate('/dashboard')}> ← Back to Dashboard </button>
+
                 <Chip />
 
                         <TimerDisplay 

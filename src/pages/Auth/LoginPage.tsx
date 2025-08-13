@@ -9,7 +9,7 @@ export default function LoginPage() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Perform login logic here
-    navigate('/pomodoro');
+    navigate('/dashboard');
   };
 
   return (
