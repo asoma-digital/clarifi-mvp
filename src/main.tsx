@@ -6,6 +6,8 @@ import App from './App.tsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PomodoroPage from './pages/PomodoroPage.tsx'
 import { PomodoroSettingsProvider } from './context/PomodoroSettingsContext';
+import RegisterScreen from './pages/Auth/RegisterPage.tsx'
+import LoginPage from './pages/Auth/LoginPage.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
@@ -14,6 +16,8 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/pomodoro" element={<PomodoroSettingsProvider><PomodoroPage /></PomodoroSettingsProvider>} />
+        <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

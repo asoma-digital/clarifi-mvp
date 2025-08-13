@@ -1,0 +1,95 @@
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.icon img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+}
+
+.login-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.login-form label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.login-form input {
+  padding: 12px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.login-btn {
+  padding: 12px;
+  font-size: 16px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(239, 26, 26, 0.3);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.forgot-password {
+  display: inline-block;
+  margin-top: 16px;
+  color: #ef1a1a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.or-text {
+  margin: 24px 0 12px;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.social-buttons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.register-redirect {
+  font-size: 14px;
+}
+
+.register-redirect .highlight {
+  color: red;
+  font-weight: bold;
+}

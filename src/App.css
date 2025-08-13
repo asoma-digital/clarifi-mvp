@@ -38,3 +38,83 @@
 .read-the-docs {
   color: #888;
 }
+
+.start-container {
+  background-color: #121212;
+  color: #fff;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Back arrow in top-left */
+.back-button {
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  font-size: 24px;
+  color: #ccc;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Main title */
+.start-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.brand-name {
+  color: #7b61ff; /* Your Asoma-inspired purple/blue */
+  text-transform: lowercase;
+}
+
+/* Subtitle text */
+.start-subtitle {
+  color: #aaa;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+/* Buttons container */
+.start-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 10px;
+}
+
+/* Primary login button */
+.login-button {
+  background-color: #7b61ff;
+  color: #fff;
+  font-size: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Secondary create button */
+.create-button {
+  background: transparent;
+  border: 1.5px solid #7b61ff;
+  color: #7b61ff;
+  font-size: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-button:hover,
+.create-button:hover {
+  opacity: 0.9;
+}
