@@ -44,6 +44,7 @@ export const PomodoroSettingsProvider = ({ children }: { children: ReactNode }) 
   const [pomodorosUntilLongBreak, setPomodorosUntilLongBreak] = useState(4);
   const [numberOfSets, setNumberOfSets] = useState(1);
 
+
   return (
     <PomodoroSettingsContext.Provider value={{
       focusLength,

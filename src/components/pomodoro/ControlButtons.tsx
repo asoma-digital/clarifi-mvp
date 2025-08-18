@@ -12,13 +12,15 @@ type ControlButtonsProps = {
   isRunning: boolean
   toggleRunning: () => void
   onOptionsClick: () => void
+  onSkipClick?: () => void
 }
 
 const ControlButtons = ({ 
   color, 
   isRunning, 
   toggleRunning,
-  onOptionsClick 
+  onOptionsClick,
+  onSkipClick
 }: ControlButtonsProps) => {
   return (
     <div className="control-buttons">
@@ -32,11 +34,11 @@ const ControlButtons = ({
             onClick={toggleRunning}
             className={buttonStyle('primary', color, 'large')}
         />
-        <IconButton
+        {/* <IconButton
             icon={FastForwardIcon}
-            onClick={() => console.log('Help clicked')}
+            onClick={onSkipClick}
             className={buttonStyle('secondary', color, 'medium')}
-        />
+        /> */}
     </div>
   )
 }

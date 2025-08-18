@@ -95,11 +95,11 @@ export default function SettingsModal({ mode, onClose, isRunning}: SettingsModal
                     onChange={setNumberOfSets}
                 />
                 {/* // Switch - Auto resume timer */}
-                <SettingItemSwitch settingItemName="Auto resume timer" mode={mode}/>
+                {/* <SettingItemSwitch settingItemName="Auto resume timer" mode={mode}/> */}
                 {/* // Switch Sound */}
-                <SettingItemSwitch settingItemName="Sound" mode={mode}/>
+                {/* <SettingItemSwitch settingItemName="Sound" mode={mode}/> */}
                 {/* // Switch Notifications */}
-                <SettingItemSwitch settingItemName="Notifications" mode={mode}/>
+                {/* <SettingItemSwitch settingItemName="Notifications" mode={mode}/> */}
             </div>
         </div>
     )

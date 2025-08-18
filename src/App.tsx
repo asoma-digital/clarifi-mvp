@@ -1,6 +1,7 @@
 import './App.css'
 import { useNavigate } from 'react-router-dom';
 
+
 export default function App() {
   const navigate = useNavigate();
 
@@ -15,6 +16,7 @@ export default function App() {
         <button className="login-button" onClick={() => navigate('/login')}>Login</button>
         <button className="create-button" onClick={() => navigate('/register')}>Create Account</button>
       </div>
+
     </div>
   );
 }

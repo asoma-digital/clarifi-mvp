@@ -1,6 +1,6 @@
 import '../styles/pages/pomodoroStyles.css'
 import type { PomodoroMode } from '../types/mode'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import TimerDisplay from '../components/pomodoro/TimerDisplay'
 import ControlButtons from '../components/pomodoro/ControlButtons'
 import { modeConfig } from '../context/PomodoroSettingsContext'
@@ -8,15 +8,31 @@ import OptionsModal from '../components/OptionsModal'
 import SettingsModal from '../components/SettingsModal'
 import { useNavigate } from 'react-router-dom'
 
+
 export default function PomodoroPage() {
     const navigate = useNavigate();
     const [mode, setMode] = useState<PomodoroMode>('focus')
     const [isRunning, setIsRunning] = useState(false)
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
     const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+    
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
+    const unlockSound = () => {
+        if (!audioRef.current) {
+            audioRef.current = new Audio('/sounds/unlock.mp3');
+        }
+        audioRef.current.play()
+        .then(() => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        }).catch(err => console.error('Audio playback failed:', err));
+    };
 
     const toggleRunning = () => {
+        unlockSound();
         setIsRunning(prev => !prev)
     }
 
@@ -33,12 +49,12 @@ export default function PomodoroPage() {
 
                 <Chip />
 
-                        <TimerDisplay 
-          isRunning={isRunning} 
-          setIsRunning={setIsRunning} 
-          mode={mode} 
-          setMode={setMode} 
-        />
+                <TimerDisplay 
+                    isRunning={isRunning} 
+                    setIsRunning={setIsRunning} 
+                    mode={mode} 
+                    setMode={setMode} 
+                />
 
                 <ControlButtons 
                     color={color} 

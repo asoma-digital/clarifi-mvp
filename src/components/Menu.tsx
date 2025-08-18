@@ -26,6 +26,7 @@ const Menu = ({ mode, onPreferencesClick }: MenuProps) => {
         keyName="S"
         mode={mode}
         onClick={() => console.log('Statistics clicked')}
+        display="none"
       />
       <MenuItem
         menuItemNameComponent={MenuItemName}
@@ -43,7 +44,8 @@ const Menu = ({ mode, onPreferencesClick }: MenuProps) => {
         menuItemNameString="Shortcuts"
         keyName="K"
         mode={mode}
-        onClick = {() => console.log('Shortcuts clicked')}
+        onClick={() => console.log('Shortcuts clicked')}
+        display="none"
       />
     </div>
   )
