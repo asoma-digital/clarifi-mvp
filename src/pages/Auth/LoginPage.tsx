@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/pages/Auth/LoginPage.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../utils/auth';
 
 
@@ -60,7 +60,7 @@ export default function LoginPage() {
         </div> */}
 
         <p className="register-redirect">
-          New to Asoma? <a href="/register">Register <span className="highlight">here</span></a>
+           New to Asoma? <Link to="/register" className="register-link">Register here</Link>
         </p>
       </div>
     </div>

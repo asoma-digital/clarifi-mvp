@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../../styles/pages/Auth/RegisterPage.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../../utils/auth';
 
 export default function RegisterPage() {
@@ -77,7 +77,7 @@ export default function RegisterPage() {
         </form>
 
         <p className="login-redirect">
-          Already have an account? <a href="/login">Login <span className="highlight">here</span></a>
+          Already have an account? <Link to="/login" className="login-link">Login <span className="highlight">here</span></Link>
         </p>
       </div>
     </div>
