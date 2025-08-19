@@ -10,6 +10,7 @@ import { PomodoroProvider } from './context/PomodoroContext.tsx'
 import RegisterScreen from './pages/Auth/RegisterPage.tsx'
 import LoginPage from './pages/Auth/LoginPage.tsx'
 import DashboardPage from './pages/Auth/DashboardPage.tsx'
+import TodoPage from './pages/TodoPage.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/todo" element={<TodoPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

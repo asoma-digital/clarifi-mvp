@@ -69,7 +69,16 @@ export default function DashboardPage() {
           Start Timer
         </button>
       </div>
-             
-    </div>
+
+      {/* To-Do List Section */}
+      <div className="todo-tile">
+        <h2>Go to Your To-Do List</h2>
+        <p>Organize your day and keep track of tasks</p>
+        <button className="start-button" onClick={() => navigate('/todo')}>
+          View To-Do List
+        </button>
+      </div>
+      </div>
+
   );
 }

@@ -3,24 +3,32 @@ import '../../styles/pages/Auth/RegisterPage.css';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../utils/auth';
 
-
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
+    e.preventDefault();
+
+    const name = (document.getElementById('name') as HTMLInputElement).value;
     const email = (document.getElementById('email') as HTMLInputElement).value;
     const password = (document.getElementById('password') as HTMLInputElement).value;
-    await register(email, password);
-    navigate('/dashboard');
-  } catch (err: any) {
-    console.error(err.message);
-    alert("Registration failed");
-  }
-};
+    const confirmPassword = (document.getElementById('confirm') as HTMLInputElement).value;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      await register(email, password, name); // ⬅️ Now includes name as displayName
+      navigate('/dashboard');
+    } catch (err: any) {
+      console.error(err.message);
+      alert(`Registration failed: ${err.message}`);
+    }
+  };
 
   return (
     <div className="register-wrapper">
@@ -67,16 +75,6 @@ export default function RegisterPage() {
 
           <button type="submit" className="register-btn">Sign Up</button>
         </form>
-
-        {/* <div className="divider">
-          <span>or register with</span>
-        </div>
-
-        <div className="social-buttons">
-          <img src="/google-icon.svg" alt="Google" />
-          <img src="/facebook-icon.svg" alt="Facebook" />
-          <img src="/apple-icon.svg" alt="Apple" />
-        </div> */}
 
         <p className="login-redirect">
           Already have an account? <a href="/login">Login <span className="highlight">here</span></a>

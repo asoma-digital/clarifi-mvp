@@ -119,3 +119,22 @@ html, body {
   color: #fff;
   border-color: #a991ff;
 }
+
+.todo-tile {
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.todo-tile h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.todo-tile p {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 16px;
+}
