@@ -61,6 +61,7 @@ export default function PomodoroPage() {
                     isRunning={isRunning} 
                     toggleRunning={toggleRunning}
                     onOptionsClick={() => setIsOptionsOpen(true)}
+                    onSkipClick={() => setIsSettingsOpen(true)}
                 />
 
                 {isOptionsOpen && (

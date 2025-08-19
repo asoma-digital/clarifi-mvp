@@ -8,55 +8,51 @@ export default function LoginPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Perform login logic here
     navigate('/dashboard');
   };
 
   return (
-    <div className="login-container">
-      {/* Icon */}
-      <div className="icon">
-        <img src="/key-icon.svg" alt="Sign In Icon" />
-      </div>
-
-      <h1 className="login-title">Sign In</h1>
-
-      <form className="login-form">
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="farhanudin1990@gmail.com"
-        />
-
-        <label htmlFor="password">Password</label>
-        <div className="password-field">
-          <input
-            id="password"
-            type={showPassword ? 'text' : 'password'}
-            placeholder="●●●●●●●"
-          />
-          <span onClick={() => setShowPassword(!showPassword)} className="toggle-password">
-            👁️
-          </span>
+    <div className="login-fullscreen">
+      <div className="login-card">
+        <div className="icon">
+          <img src="/asoma.jpg" alt="Asoma logo" />
         </div>
 
-        <button type="submit" className="login-btn" onClick={handleLogin}>Login</button>
-      </form>
+        <h1 className="login-title">Sign In</h1>
+        <p className="login-subtitle">Sign in to your Asoma account</p>
 
-      <a href="/forgot-password" className="forgot-password">Forgot Password</a>
+        <form className="login-form" onSubmit={handleLogin}>
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" placeholder="you@asoma.com" required />
 
-      <p className="or-text">or Login with</p>
+          <label htmlFor="password">Password</label>
+          <div className="password-field">
+            <input
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder="●●●●●●●"
+              required
+            />
+            <span onClick={() => setShowPassword(!showPassword)} className="toggle-password">👁️</span>
+          </div>
 
-      <div className="social-buttons">
-        <img src="/google-icon.svg" alt="Google" />
-        <img src="/facebook-icon.svg" alt="Facebook" />
-        <img src="/apple-icon.svg" alt="Apple" />
+          <button type="submit" className="login-btn">Sign In</button>
+        </form>
+
+        <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
+
+        {/* <div className="divider">or sign in with</div>
+
+        <div className="social-buttons">
+          <img src="/google-icon.svg" alt="Google" />
+          <img src="/facebook-icon.svg" alt="Facebook" />
+          <img src="/apple-icon.svg" alt="Apple" />
+        </div> */}
+
+        <p className="register-redirect">
+          New to Asoma? <a href="/register">Register <span className="highlight">here</span></a>
+        </p>
       </div>
-
-      <p className="register-redirect">
-        New user AuthFlow? <a href="/register"><span className="highlight">Register here.</span></a>
-      </p>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import IconButton from "../IconButton"
 import DotsThreeIcon from "../icons/DotsThreeIcon"
 import PlayIcon from "../icons/PlayIcon"
-import FastForwardIcon from "../icons/FastForwardIcon"
+// import FastForwardIcon from "../icons/FastForwardIcon"
 import PauseIcon from "../icons/PauseIcon"
 import '../../styles/components/IconButton.css'
 import { buttonStyle } from "../../utils/buttonStyle"
@@ -20,7 +20,7 @@ const ControlButtons = ({
   isRunning, 
   toggleRunning,
   onOptionsClick,
-  onSkipClick
+  // onSkipClick
 }: ControlButtonsProps) => {
   return (
     <div className="control-buttons">
