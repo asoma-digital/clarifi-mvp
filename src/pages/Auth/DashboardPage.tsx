@@ -4,6 +4,8 @@ import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect } from 'react';
 import { logout } from '../../utils/auth';
+import TopThreeTasks from '../../components/TopThreeTasks';
+
 
 export default function DashboardPage() {
 
@@ -35,24 +37,31 @@ export default function DashboardPage() {
       <h1 className="dashboard-title">Welcome Back</h1>
       <p className="dashboard-subtitle">Here’s a summary of your activity</p>
 
-      {/* Pomodoro Section */}
-      <div className="pomodoro-tile">
-        <h2>Start a Pomodoro Timer</h2>
-        <p>Stay focused and productive with timed work sessions</p>
-        <button className="start-button" onClick={() => navigate('/pomodoro')}>
-          Start Timer
-        </button>
+      <div className="dashboard-tiles">
+        {/* Pomodoro Section */}
+        <div className="pomodoro-tile">
+          <h2>Start a Pomodoro Timer</h2>
+          <p>Stay focused and productive with timed work sessions</p>
+          <button className="start-button" onClick={() => navigate('/pomodoro')}>
+            Start Timer
+          </button>
+        </div>
+
+        {/* To-Do List Section */}
+        <div className="todo-tile">
+          <h2>Go to Your To-Do List</h2>
+          <p>Organize your day and keep track of tasks</p>
+          <button className="start-button" onClick={() => navigate('/todo')}>
+            View To-Do List
+          </button>
+        </div>
+
+        <div className="top-tasks-tile">
+          <TopThreeTasks />
+        </div>
       </div>
 
-      {/* To-Do List Section */}
-      <div className="todo-tile">
-        <h2>Go to Your To-Do List</h2>
-        <p>Organize your day and keep track of tasks</p>
-        <button className="start-button" onClick={() => navigate('/todo')}>
-          View To-Do List
-        </button>
-      </div>
-      </div>
+    </div>
 
   );
 }

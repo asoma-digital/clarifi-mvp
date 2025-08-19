@@ -9,6 +9,7 @@ import {
   markAsTopTask,
 } from '../services/todoService';
 import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 type Todo = {
   id: string;
@@ -22,6 +23,7 @@ export default function TodoPage() {
   const [newTodo, setNewTodo] = useState('');
 
   const userId = auth.currentUser?.uid;
+  const navigate = useNavigate();
 
   const fetchTodos = async () => {
     if (!userId) return;
@@ -70,6 +72,7 @@ export default function TodoPage() {
 
   return (
     <div className="todo-page-container">
+      <button className='back-button' onClick={() => navigate('/dashboard')}> ← Back to Dashboard </button>
       <h1 className="todo-title">Your To-Do List</h1>
 
       <div className="todo-input-row">

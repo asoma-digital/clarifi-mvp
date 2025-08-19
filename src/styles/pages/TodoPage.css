@@ -90,3 +90,17 @@
 .star-button.top-task {
   color: gold;
 }
+
+.back-button {
+  background: none;
+  border: none;
+  color: #a991ff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #d4c2ff;
+}
