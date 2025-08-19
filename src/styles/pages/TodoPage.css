@@ -1,7 +1,6 @@
 .todo-page-container {
   background-color: #121212;
   min-height: 100vh;
-  padding: 40px 20px;
   color: #fff;
   font-family: 'Inter', sans-serif;
 }
@@ -76,4 +75,18 @@
   font-size: 18px;
   cursor: pointer;
   padding: 0;
+}
+
+.star-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: color 0.3s ease;
+}
+
+.star-button.top-task {
+  color: gold;
 }

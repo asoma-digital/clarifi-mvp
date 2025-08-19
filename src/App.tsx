@@ -7,8 +7,6 @@ export default function App() {
 
   return (
     <div className="start-container">
-      <button className="back-button" aria-label="Go Back">←</button>
-
       <h1 className="start-title">Welcome to <span className="brand-name">asoma</span></h1>
       <p className="start-subtitle">Please login to your account or create a new account to continue</p>
 

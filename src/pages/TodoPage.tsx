@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
 import '../styles/pages/TodoPage.css';
-import { addTodo, deleteTodo, getTodos, toggleTodo } from '../services/todoService';
+import {
+  addTodo,
+  deleteTodo,
+  getTodos,
+  toggleTodo,
+  toggleTopTask,
+  markAsTopTask,
+} from '../services/todoService';
 import { auth } from '../firebase';
 
 type Todo = {
   id: string;
   text: string;
   completed: boolean;
+  isTopTask?: boolean;
 };
 
 export default function TodoPage() {
@@ -17,8 +25,8 @@ export default function TodoPage() {
 
   const fetchTodos = async () => {
     if (!userId) return;
-    const todos = await getTodos(userId);
-    setTodos(todos);
+    const userTodos = await getTodos(userId);
+    setTodos(userTodos);
   };
 
   useEffect(() => {
@@ -42,9 +50,28 @@ export default function TodoPage() {
     fetchTodos();
   };
 
+  const handleToggleTopTask = async (todo: Todo) => {
+    if (!userId) return;
+
+    try {
+      if (!todo.isTopTask) {
+        // Check if limit is reached before marking
+        await markAsTopTask(todo.id, userId);
+      } else {
+        // If already top task, unmark it
+        await toggleTopTask(todo.id, false);
+      }
+      fetchTodos();
+    } catch (error) {
+      alert("Could not update top task. Please try again.");
+      console.error("Error toggling top task:", error);
+    }
+  };
+
   return (
     <div className="todo-page-container">
       <h1 className="todo-title">Your To-Do List</h1>
+
       <div className="todo-input-row">
         <input
           type="text"
@@ -60,6 +87,9 @@ export default function TodoPage() {
         {todos.map((todo) => (
           <li key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
             <span onClick={() => handleToggle(todo.id, todo.completed)}>{todo.text}</span>
+            <button onClick={() => handleToggleTopTask(todo)} className="star-button">
+              {todo.isTopTask ? '⭐' : '☆'}
+            </button>
             <button onClick={() => handleDelete(todo.id)} className="delete-button">✕</button>
           </li>
         ))}
