@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import '../../styles/pages/Auth/LoginPage.css';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../utils/auth';
+
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/dashboard');
+    try {
+      const email = (document.getElementById('email') as HTMLInputElement).value;
+      const password = (document.getElementById('password') as HTMLInputElement).value;
+      await login(email, password);
+      navigate('/dashboard');
+    } catch (err: any) {
+      console.error(err.message);
+      alert("Login failed");
+    }
   };
 
   return (
@@ -30,7 +40,7 @@ export default function LoginPage() {
             <input
               id="password"
               type={showPassword ? 'text' : 'password'}
-              placeholder="●●●●●●●"
+              placeholder="password"
               required
             />
             <span onClick={() => setShowPassword(!showPassword)} className="toggle-password">👁️</span>

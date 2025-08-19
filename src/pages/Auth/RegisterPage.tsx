@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import '../../styles/pages/Auth/RegisterPage.css';
 import { useNavigate } from 'react-router-dom';
+import { register } from '../../utils/auth';
+
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const navigate = useNavigate();
 
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Registration logic
+  const handleRegister = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
+    await register(email, password);
     navigate('/dashboard');
-  };
+  } catch (err: any) {
+    console.error(err.message);
+    alert("Registration failed");
+  }
+};
 
   return (
     <div className="register-wrapper">
