@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState } from 'react';
+import { createContext, useContext, /*useRef,*/ useState } from 'react';
 import { usePomodoroSettings } from './PomodoroSettingsContext';
 import type { PomodoroMode } from '../types/mode';
 import type { ReactNode } from 'react';
@@ -22,7 +22,7 @@ export const PomodoroProvider = ({ children }: { children: ReactNode }) => {
     const [isRunning, setIsRunning] = useState(false);
 
     const handleComplete = () => {
-        setIsRunning(false)
+        if (isRunning) setIsRunning(false)
         if (mode === 'focus') {
             if (pomodorosLeft > 0) {
                 setPomodorosLeft(p => p - 1)

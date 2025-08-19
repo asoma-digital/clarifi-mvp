@@ -1,7 +1,7 @@
 // needs number input, swithc input, header, mode
 
 import SettingItemNumber from "./SettingItemNumber";
-import SettingItemSwitch from "./SettingItemSwitch";
+// import SettingItemSwitch from "./SettingItemSwitch";
 import type { PomodoroMode } from '../types/mode'
 import { modeColorMap } from '../utils/pomodoroUtils'
 import '../styles/global.css'
